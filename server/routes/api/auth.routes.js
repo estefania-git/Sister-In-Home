@@ -10,6 +10,7 @@ const bcryptSalt = 10;
 
 
 router.post('/signup', (req, res, next) => {
+    console.log(req.body)
     const {
         username,
         password,

@@ -12,7 +12,7 @@ const path = require('path');
 const session = require("express-session");
 const MongoStore = require('connect-mongo')(session);
 const flash = require("connect-flash");
-
+const cors = require("cors");
 
 mongoose
   .connect('mongodb://localhost/sister-in-home', {
@@ -37,6 +37,11 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
+
+app.use(cors({
+      credentials: true,
+      origin: ['http://localhost:3000'],
+      }));
 
 // Express View engine setup
 
@@ -81,11 +86,11 @@ app.use(flash());
 require('./passport')(app);
 
 
-const index = require('./routes/index');
-app.use('/', index);
+const index = require('./routes/api/index');
+app.use('/api', index);
 
-const authRoutes = require('./routes/auth');
-app.use('/auth', authRoutes);
+const authRoutes = require('./routes/api/auth.routes');
+app.use('/api/auth', authRoutes);
 
 
 module.exports = app;

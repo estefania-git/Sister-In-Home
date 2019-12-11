@@ -1,28 +1,30 @@
 import React, { Component } from 'react'
 import PageTitle from '../../fontStyles/PageTitle'
-import AuthService from '../../services/AuthService';
+import AuthService from '../../services/AuthService'
 
-export default class Login extends Component {
+export default class SignUp extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.authService = new AuthService();
   }
 
   state = {
     username: '',
-    password: ''
+    password: '',
+    picture: ''
   }
+
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({...this.state, [name]:value})
   }
-  handleLogin = (e) => {
-    const { setUser, history } = this.props;
+  handleSignUp = (e) => {
     e.preventDefault()
-    this.authService.login(this.state)
+    const { history, setUser } = this.props;
+    this.authService.signup(this.state)
     .then(
       (user) => {
-        setUser(user)
+        setUser(user);
         history.push("/")
       },
       (error) => {
@@ -31,20 +33,35 @@ export default class Login extends Component {
     )
   }
 
+  handleUpload = (e) => {
+    const uploadData = new FormData();
+    uploadData.append('picture', e.target.files[0])
+    this.authService.upload(uploadData)
+    .then(
+      (data) => {
+        this.setState({...this.state, picture: data.secure_url})
+      },
+      (error) => {
+        console.error(error)
+      }
+    )
+  }
+
   render() {
-    const { username, password } = this.state;
+    const { username, password, } = this.state;
     return (
       <div>
-        <PageTitle color="black">Login</PageTitle>
-        <form onSubmit={this.handleLogin}>
+        <PageTitle color="black">SignUp</PageTitle>
+        <form onSubmit={this.handleSignUp}>
           <label htmlFor="username">Username: </label>
-          <input type="text" name="username" value={username} onChange={this.handleChange}/>
-          <label htmlFor="password" >Password: </label>
-          <input type="password" name="password" value={password} onChange={this.handleChange}/>
-
-          <input type="submit" value="Login"/>
+          <input type="text" name="username" value={username} required onChange={this.handleChange}/>
+          <label htmlFor="password">Password: </label>
+          <input type="password" value={password} name="password" required onChange={this.handleChange}/>
+         
+          <input type="submit" value="Create account"/>
         </form>
       </div>
     )
   }
 }
+

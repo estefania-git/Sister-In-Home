@@ -35,7 +35,7 @@ export default class Login extends Component {
     const { username, password } = this.state;
     return (
       <div>
-        <PageTitle color="black">Login</PageTitle>
+        <PageTitle color="blue">Login</PageTitle>
         <form onSubmit={this.handleLogin}>
           <label htmlFor="username">Username: </label>
           <input type="text" name="username" value={username} onChange={this.handleChange}/>
