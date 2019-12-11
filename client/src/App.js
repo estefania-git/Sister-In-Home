@@ -11,7 +11,7 @@ import Home from "./components/Home/Home";
 // import { Carousel } from "react-bootstrap";
 import Navbars from "./components/Navbar/Navbars";
 import Profile from "./components/Profile/Profile";
-
+import Footer from "./components/Footer/Footer";
 
 class App extends Component {
   constructor(props) {
@@ -22,14 +22,13 @@ class App extends Component {
 
     //  this.todoService = new TodoService();
     this.authService = new AuthService();
-    this.fetchUser()
+    this.fetchUser();
   }
-
 
   setUser = user => {
     this.setState({
       ...this.state,
-      user:user
+      user: user
     });
   };
 
@@ -55,8 +54,20 @@ class App extends Component {
     this.fetchUser();
   }
 
+//   logoutUser = () => {
+//     this.service.logout().then(() => {
+//       this.setState({ loggedInUser: null });
+//       this.props.getUser(null);
+//     });
+//   };
+
+//   logout() {
+//     localStorage.clear();
+//     window.location.href = "/";
+//   }
+
   render() {
-   //   const { user } = this.state;
+    //   const { user } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -75,10 +86,16 @@ class App extends Component {
               path="/signup"
               render={match => <SignUp {...match} setUser={this.setUser} />}
             />
+            <footer className="App-Footer">
+              <Footer className="footer"></Footer>
+            </footer>
           </Switch>
         ) : (
           <Switch>
             <Route exact path="/" render={() => <Profile />} />
+            <footer className="App-Footer">
+              <Footer className="footer"></Footer>
+            </footer>
           </Switch>
         )}
       </div>
