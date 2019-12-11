@@ -8,22 +8,28 @@ import SignUp from "./components/Signup/Signup";
 import AuthService from "./services/AuthService";
 // import PrivateRoute from "./guards/PrivateRoute";
 import Home from "./components/Home/Home";
+// import { Carousel } from "react-bootstrap";
+import Navbars from "./components/Navbar/Navbars";
+import Profile from "./components/Profile/Profile";
+
 
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      user: null
+    };
+
     //  this.todoService = new TodoService();
     this.authService = new AuthService();
+    this.fetchUser()
   }
 
-  state = {
-    user: null
-  };
 
   setUser = user => {
     this.setState({
       ...this.state,
-      user
+      user:user
     });
   };
 
@@ -36,11 +42,11 @@ class App extends Component {
             this.setUser(user);
           },
           error => {
-            this.setUser(false);
+            this.setUser(null);
           }
         )
         .catch(() => {
-          this.setUser(false);
+          this.setUser(null);
         });
     }
   };
@@ -50,12 +56,15 @@ class App extends Component {
   }
 
   render() {
-    //  const { user } = this.state;
+   //   const { user } = this.state;
     return (
       <div className="App">
         <header className="App-header">
+          <Navbars className="navbars" user={this.state.user}></Navbars>
+        </header>
+        {this.state.user == null ? (
           <Switch>
-            <Route exact path="/" render={match => <Home {...match} />} />
+            <Route exact path="/" render={() => <Home />} />
             <Route
               exact
               path="/login"
@@ -67,7 +76,11 @@ class App extends Component {
               render={match => <SignUp {...match} setUser={this.setUser} />}
             />
           </Switch>
-        </header>
+        ) : (
+          <Switch>
+            <Route exact path="/" render={() => <Profile />} />
+          </Switch>
+        )}
       </div>
     );
   }
