@@ -28,8 +28,9 @@ export default class Navbars extends Component {
             <Navbar bg="dark" variant="dark">
               <Navbar.Brand href="">Sister In Home</Navbar.Brand>
               <Nav className="mr-auto">
-                <Link to="/">Profile</Link>
-                <Link to="/">Logout</Link>
+                <Link to="/"> Edit Profile</Link>
+                <Link to="/">Search</Link>
+                <Link to="/" onClick={() => this.props.logout()}>Logout</Link>
                 </Nav>
             </Navbar>
           </div>

@@ -22,7 +22,6 @@ class App extends Component {
 
     //  this.todoService = new TodoService();
     this.authService = new AuthService();
-    this.fetchUser();
   }
 
   setUser = user => {
@@ -54,12 +53,11 @@ class App extends Component {
     this.fetchUser();
   }
 
-//   logoutUser = () => {
-//     this.service.logout().then(() => {
-//       this.setState({ loggedInUser: null });
-//       this.props.getUser(null);
-//     });
-//   };
+  logout = () => {
+    this.authService.logout().then(() => {
+      this.setState({ user: null });
+    });
+  };
 
 //   logout() {
 //     localStorage.clear();
@@ -71,7 +69,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Navbars className="navbars" user={this.state.user}></Navbars>
+          <Navbars className="navbars" user={this.state.user} logout={this.logout}></Navbars>
         </header>
         {this.state.user == null ? (
           <Switch>
