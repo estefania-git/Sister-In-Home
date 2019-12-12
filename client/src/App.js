@@ -59,13 +59,10 @@ class App extends Component {
     });
   };
 
-//   logout() {
-//     localStorage.clear();
-//     window.location.href = "/";
-//   }
+
 
   render() {
-    //   const { user } = this.state;
+      const { user } = this.state;
     return (
       <div className="App">
         <header className="App-header">
