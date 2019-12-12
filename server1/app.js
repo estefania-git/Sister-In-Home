@@ -71,6 +71,7 @@ app.use(
   })
 );
 
+require('./passport')(app);
 
 // Enable authentication using session + passport
 app.use(session({
@@ -80,7 +81,6 @@ app.use(session({
   store: new MongoStore( { mongooseConnection: mongoose.connection })
 }))
 app.use(flash());
-require('./passport')(app);
     
 
 const index = require('./routes/index');

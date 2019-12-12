@@ -29,7 +29,7 @@ export default class Navbars extends Component {
               <Navbar.Brand href="">Sister In Home</Navbar.Brand>
               <Nav className="mr-auto">
                 <Link to="/"> Edit Profile</Link>
-                <Link to="/">Search</Link>
+                <Link to = "/search"> Search </Link>
                 <Link to="/" onClick={() => this.props.logout()}>Logout</Link>
                 </Nav>
             </Navbar>

@@ -61,13 +61,14 @@ router.get("/logout", (req, res) => {
 });
 
 router.get('/loggedin', (req, res, next) => {
-  if (req.isAuthenticated()) {
-    res.status(200).json(req.user);
-    return;
-  }
-  res.status(403).json({
-    message: 'Unauthorized'
-  });
+  console.log(req.user)
+  // if (req.isAuthenticated()) {
+  //   res.status(200).json(req.user);
+  //   return;
+  // }
+  // res.status(403).json({
+  //   message: 'Unauthorized'
+  // });
 });
 
 

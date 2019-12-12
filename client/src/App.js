@@ -12,6 +12,7 @@ import Home from "./components/Home/Home";
 import Navbars from "./components/Navbar/Navbars";
 import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
+import MapContainer from "./components/Maps/GoogleApi"
 
 class App extends Component {
   constructor(props) {
@@ -62,7 +63,7 @@ class App extends Component {
 
 
   render() {
-      const { user } = this.state;
+      // const { user } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -88,6 +89,7 @@ class App extends Component {
         ) : (
           <Switch>
             <Route exact path="/" render={() => <Profile />} />
+            <Route exact path="/search"  render={() => <MapContainer />} />
             <footer className="App-Footer">
               <Footer className="footer"></Footer>
             </footer>
