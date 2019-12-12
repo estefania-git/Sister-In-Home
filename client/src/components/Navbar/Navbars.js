@@ -40,4 +40,4 @@ export default class Navbars extends Component {
   }
 }
 
-  //  <Link to="/" onClick={this.logout()}>Logout</Link>
+

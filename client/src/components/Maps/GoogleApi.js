@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import {Map, InfoWindow, Marker, GoogleApiWrapper, Listing} from 'google-maps-react';
+import "./GoogleApi.css"
 
-
+const style = {
+  width: '50%',
+  height: '50%',
+ }
 
 export class MapContainer extends Component {
   state = {
@@ -10,6 +14,13 @@ export class MapContainer extends Component {
     activeMarker: {},
     selectedPlace: {},
   };
+
+  //  fetchPlaces(mapProps, map) {
+  //    const {
+  //      google
+  //    } = mapProps;
+  //    const service = new google.maps.places.PlacesService(map);
+  //  }
  
   onMarkerClick = (props, marker, e) =>
     this.setState({
@@ -26,11 +37,26 @@ export class MapContainer extends Component {
       })
     }
   };
+  
  
+
   render() {
     return (
-      <Map google={this.props.google}
+      
+      <Map id="map" google={this.props.google}
+          style={style}
+    
+      // onReady={this.fetchPlaces}
+      // visible={false}
+          initialCenter={{
+            lat: 40.4167,
+            lng: -3.7032540
+          }}
+        
+          zoom={15}
           onClick={this.onMapClicked}>
+          
+         
         <Marker onClick={this.onMarkerClick}
                 name={'Current location'} />
  
@@ -41,12 +67,12 @@ export class MapContainer extends Component {
               <h1>{this.state.selectedPlace.name}</h1>
             </div>
         </InfoWindow>
+          {/* <Listing places={this.state.places} /> */}
       </Map>
     )
   }
 }
 
 export default GoogleApiWrapper({
-    apiKey: (process.env.API_KEY_GOOGLE),
-    
-})(MapContainer)
+    apiKey: (process.env.API_KEY_GOOGLE)
+    })(MapContainer)
