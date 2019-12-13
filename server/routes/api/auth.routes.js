@@ -3,6 +3,7 @@ const passport = require('passport');
 const router = express.Router();
 const User = require("../../models/User");
 const uploader = require('../../configs/cloudinary.config')
+const BabySister = require("../../models/SisterMami");
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -146,6 +147,18 @@ router.post('/upload', uploader.single('picture'), (req, res) => {
             message: 'Something went wrong'
         });
     }
+})
+
+router.get("/mamis", (req, res) => {
+    BabySister.find({
+        role: "mami"
+    }).then(babySistersPayload => res.json(babySistersPayload))
+})
+
+router.get("/sisters", (req, res) => {
+    BabySister.find({
+        role: "sister"
+    }).then(babySistersPayload => res.json(babySistersPayload))
 })
 
 module.exports = router;

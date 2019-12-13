@@ -12,7 +12,7 @@ import Home from "./components/Home/Home";
 import Navbars from "./components/Navbar/Navbars";
 import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
-import MapContainer from "./components/Maps/GoogleApi"
+import MapContainer from "./components/Maps/GoogleApi";
 
 class App extends Component {
   constructor(props) {
@@ -56,45 +56,51 @@ class App extends Component {
 
   logout = () => {
     this.authService.logout().then(() => {
-      this.setState({ user: null });
+      this.setState({
+        user: null
+      });
     });
   };
 
-
-
   render() {
-      // const { user } = this.state;
+    // const { user } = this.state;
     return (
       <div className="App">
         <header className="App-header">
-          <Navbars className="navbars" user={this.state.user} logout={this.logout}></Navbars>
-        </header>
-        {this.state.user == null ? (
-          <Switch>
-            <Route exact path="/" render={() => <Home />} />
-            <Route
-              exact
-              path="/login"
-              render={match => <Login {...match} setUser={this.setUser} />}
-            />
-            <Route
-              exact
-              path="/signup"
-              render={match => <SignUp {...match} setUser={this.setUser} />}
-            />
-            <footer className="App-Footer">
-              <Footer className="footer"></Footer>
-            </footer>
-          </Switch>
-        ) : (
-          <Switch>
-            <Route exact path="/" render={() => <Profile />} />
-            <Route exact path="/search"  render={() => <MapContainer />} />
-            <footer className="App-Footer">
-              <Footer className="footer"></Footer>
-            </footer>
-          </Switch>
-        )}
+          <Navbars
+            className="navbars"
+            user={this.state.user}
+            logout={this.logout}
+          >
+            {" "}
+          </Navbars>{" "}
+        </header>{" "}
+        <section>
+          {" "}
+          {this.state.user == null ? (
+            <Switch>
+              <Route exact path="/" render={() => <Home />} />{" "}
+              <Route
+                exact
+                path="/login"
+                render={match => <Login {...match} setUser={this.setUser} />}
+              />
+              <Route
+                exact
+                path="/signup"
+                render={match => <SignUp {...match} setUser={this.setUser} />}
+              />
+              <footer className="App-Footer">
+                <Footer className="footer"> </Footer>{" "}
+              </footer>{" "}
+            </Switch>
+          ) : (
+            <Switch>
+              <Route exact path="/" render={() => <Profile />} />{" "}
+              <Route exact path="/search" render={() => <MapContainer />} />
+            </Switch>
+          )}{" "}
+        </section>
       </div>
     );
   }

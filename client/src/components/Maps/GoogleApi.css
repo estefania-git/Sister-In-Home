@@ -1,3 +1,7 @@
-.MapContainer{
+.MapContainer {
     margin-top: 50%;
+}
+
+#go-back {
+    background-color: pink;
 }

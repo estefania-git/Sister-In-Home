@@ -1,8 +1,10 @@
-
+section {
+  padding-top: 100px;
+}
 
 .App {
   text-align: center;
-  
+
 }
 
 .App-logo {
@@ -17,7 +19,7 @@
 }
 
 .App-header {
-  background-color:rgb(100, 192, 184);
+  background-color: rgb(100, 192, 184);
   font-size: calc(10px + 2vmin);
   color: white;
   position: fixed;
@@ -35,13 +37,14 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.App-Footer{
-   top: 0;
-   z-index: 10;
-   width: 100%;
+.App-Footer {
+  top: 0;
+  z-index: 10;
+  width: 100%;
 }
