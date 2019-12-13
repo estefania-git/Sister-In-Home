@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const Schema = require('mongoose').Schema;
-const IMG_URL = /.*\.(gif|jpe?g|bmp|png)$/igm
+const mongoose = require("mongoose");
+const Schema = require("mongoose").Schema;
+const IMG_URL = /.*\.(gif|jpe?g|bmp|png)$/gim;
 const userSchema = new Schema({
   username: {
     type: String,
@@ -14,7 +14,11 @@ const userSchema = new Schema({
   },
   picture: {
     type: String,
-    default: 'https://i.stack.imgur.com/l60Hf.png'
+    default: "https://i.stack.imgur.com/l60Hf.png"
+  },
+  role: {
+    type: String,
+    enum: ["mami", "sister"]
   }
 }, {
   timestamps: true,
@@ -28,7 +32,7 @@ const userSchema = new Schema({
       return ret;
     }
   }
-})
+});
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 module.exports = User;
