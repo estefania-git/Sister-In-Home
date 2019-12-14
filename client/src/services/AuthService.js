@@ -39,8 +39,9 @@ class AuthService {
             .then(res => Promise.resolve(res.data))
             .catch(error => console.error(error));
     };
+    
     logout = () => {
-        return this.service
+        return this.instance
             .post("/logout", {})
             .then(response => response.data)
             .catch(error => console.error(error));

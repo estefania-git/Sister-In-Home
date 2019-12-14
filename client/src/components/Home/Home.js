@@ -14,9 +14,11 @@ class Home extends Component {
               src="images/1.jpg"
               alt="First slide"
             />
+            <br/>
             <Carousel.Caption>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            
+              <h3> No sabes con quién a tus hijos dejar , en esta app te podemos ayudar.</h3>
+              
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -25,10 +27,11 @@ class Home extends Component {
               src="images/free-babysitter-vector.png"
               alt="Third slide"
             />
-
+            <br/>
             <Carousel.Caption>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            
+              <h3> Ponte en contacto con tu Baby Sister , ve sus valoraciones y escoge a la que más se ajuste a tus necesidades.</h3>
+              
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>

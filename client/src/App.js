@@ -14,6 +14,7 @@ import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
 import MapContainer from "./components/Maps/GoogleApi";
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -72,11 +73,11 @@ class App extends Component {
             user={this.state.user}
             logout={this.logout}
           >
-            {" "}
-          </Navbars>{" "}
-        </header>{" "}
+          
+          </Navbars>
+        </header>
         <section>
-          {" "}
+        
           {this.state.user == null ? (
             <Switch>
               <Route exact path="/" render={() => <Home />} />{" "}
@@ -91,15 +92,16 @@ class App extends Component {
                 render={match => <SignUp {...match} setUser={this.setUser} />}
               />
               <footer className="App-Footer">
-                <Footer className="footer"> </Footer>{" "}
-              </footer>{" "}
+                <Footer className="footer"> </Footer>
+              </footer>
             </Switch>
           ) : (
             <Switch>
-              <Route exact path="/" render={() => <Profile />} />{" "}
+              <Route exact path="/profile" render={() => <Profile />} />
               <Route exact path="/search" render={() => <MapContainer />} />
+           
             </Switch>
-          )}{" "}
+          )}
         </section>
       </div>
     );
