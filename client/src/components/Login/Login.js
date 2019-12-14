@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PageTitle from '../../fontStyles/PageTitle'
 import AuthService from '../../services/AuthService';
+import { Form, Button } from "react-bootstrap";
 
 export default class Login extends Component {
   constructor(props) {
@@ -35,15 +36,27 @@ export default class Login extends Component {
     const { username, password } = this.state;
     return (
       <div>
-        <PageTitle color="blue">Login</PageTitle>
-        <form onSubmit={this.handleLogin}>
-          <label htmlFor="username">Username: </label>
-          <input type="text" name="username" value={username} onChange={this.handleChange}/>
-          <label htmlFor="password" >Password: </label>
-          <input type="password" name="password" value={password} onChange={this.handleChange}/>
+        <PageTitle color="black">Login</PageTitle>
+        
+        <br/>
+          <Form  id="form" onSubmit={this.handleLogin}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="text" name="username" placeholder="Enter email" value={username}  onChange={this.handleChange} />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+    </Form.Text>
+            </Form.Group>
 
-          <input type="submit" value="Login"/>
-        </form>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+            <Form.Control type="password"  name="password" placeholder="Password" value={password} onChange={this.handleChange}/>
+            </Form.Group>
+           
+          <Button variant="primary" type="submit" value="Login">
+              Submit
+  </Button>
+          </Form>
       </div>
     )
   }
