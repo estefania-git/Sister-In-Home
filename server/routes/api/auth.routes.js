@@ -55,7 +55,7 @@ router.post('/signup', (req, res, next) => {
         const newUser = new User({
             username: username,
             password: hashPass,
-            picture
+            // picture
         });
 
         newUser.save(err => {
@@ -136,6 +136,8 @@ router.get('/loggedin', (req, res, next) => {
         message: 'Unauthorized'
     });
 });
+
+
 
 router.post('/upload', uploader.single('picture'), (req, res) => {
     if (req.file) {

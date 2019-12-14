@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PageTitle from '../../fontStyles/PageTitle'
 import AuthService from '../../services/AuthService'
-
+import { Form, Button } from "react-bootstrap";
+import "./Signup.css"
 export default class SignUp extends Component {
   constructor(props) {
     super(props)
@@ -11,7 +12,8 @@ export default class SignUp extends Component {
   state = {
     username: '',
     password: '',
-    picture: ''
+    picture: '',
+    // role:'',
   }
 
   handleChange = (e) => {
@@ -51,17 +53,37 @@ export default class SignUp extends Component {
     const { username, password, } = this.state;
     return (
       <div>
-        <PageTitle color="black">SignUp</PageTitle>
-        <form onSubmit={this.handleSignUp}>
-          <label htmlFor="username">Username: </label>
-          <input type="text" name="username" value={username} required onChange={this.handleChange}/>
-          <label htmlFor="password">Password: </label>
-          <input type="password" value={password} name="password" required onChange={this.handleChange}/>
-         
-          <input type="submit" value="Create account"/>
-        </form>
+        <PageTitle color="black">Sign Up</PageTitle>
+        <br/>
+          <Form  id="form" onSubmit={this.handleSignUp}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="text" name="username" placeholder="Enter email" value={username} required onChange={this.handleChange} />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+    </Form.Text>
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" value={password} name="password" required onChange={this.handleChange}/>
+            </Form.Group>
+            <Form.Group controlId="formBasicCheckbox">
+              <Form.Check type="checkbox" label="mami" />
+            <Form.Check type="checkbox" label="sister" />
+            </Form.Group>
+          <Button variant="primary" type="submit" value="Create account">
+              Submit
+  </Button>
+          </Form>
+          
       </div>
     )
   }
 }
+     
+         
+          
+          
+          
 
