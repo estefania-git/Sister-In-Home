@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Switch, Route, Link, withRouter } from "react-router-dom";
 
-
-
 export default class Navbars extends Component {
   logout() {
     localStorage.clear();
@@ -28,10 +26,13 @@ export default class Navbars extends Component {
             <Navbar bg="dark" variant="dark">
               <Navbar.Brand href="">Sister In Home</Navbar.Brand>
               <Nav className="mr-auto">
+                <Link to="/profile"> Profile</Link>
                 <Link to="/editProfile"> Edit Profile</Link>
-                <Link to = "/search"> Search </Link>
-                  <Link to="/" onClick={() => this.props.logout()}>Logout</Link>
-                </Nav>
+                <Link to="/search"> Search </Link>
+                <Link to="/" onClick={() => this.props.logout()}>
+                  Logout
+                </Link>
+              </Nav>
             </Navbar>
           </div>
         )}
@@ -39,5 +40,3 @@ export default class Navbars extends Component {
     );
   }
 }
-
-
