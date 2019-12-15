@@ -42,10 +42,7 @@ class Home extends Component {
             />
 
             <Carousel.Caption>
-              <h3> </h3>
-              <p>
-               
-              </p>
+            
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
