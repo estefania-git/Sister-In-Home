@@ -91,19 +91,22 @@ class App extends Component {
                 path="/signup"
                 render={match => <SignUp {...match} setUser={this.setUser} />}
               />
-              <footer className="App-Footer">
-                <Footer className="footer"> </Footer>
-              </footer>
+              
             </Switch>
           ) : (
             <Switch>
               <Route exact path="/profile" render={() => <Profile />} />
               <Route exact path="/search" render={() => <MapContainer />} />
-           
+                
             </Switch>
           )}
+          <footer>
+            <Footer></Footer>
+          </footer>
         </section>
+       
       </div>
+     
     );
   }
 }
