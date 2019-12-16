@@ -1,3 +1,11 @@
-.footer{
-    
+.card {
+    background-color:rgb(52, 58, 63);
+    width: "115rem";
+    height: "7rem";
+
+  
+}
+
+.card p,h3{
+    color: rgb(201, 75, 120);
 }

@@ -76,6 +76,8 @@ class App extends Component {
           
           </Navbars>
         </header>
+
+       
         <section>
         
           {this.state.user == null ? (
@@ -91,14 +93,15 @@ class App extends Component {
                 path="/signup"
                 render={match => <SignUp {...match} setUser={this.setUser} />}
               />
-              
+            
             </Switch>
           ) : (
             <Switch>
-              <Route exact path="/profile" render={() => <Profile />} />
+              <Route exact path="/profile" render={() => <Profile user={this.state.user} picture={this.state.picture} />} />
               <Route exact path="/search" render={() => <MapContainer />} />
-                
+              
             </Switch>
+             
           )}
           <footer>
             <Footer></Footer>

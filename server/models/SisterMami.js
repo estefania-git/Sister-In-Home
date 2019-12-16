@@ -11,7 +11,7 @@ const SisterMamiSchema = new Schema({
         required: true
     },
     coment: {
-        type: String
+        type: Schema.Types.ObjectId, ref: ""
 
     },
 

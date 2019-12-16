@@ -10,7 +10,7 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minlength: 2
+    minlength: 8
   },
   picture: {
     type: String,
@@ -18,8 +18,25 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    enum: ["mami", "sister"]
-  }
+    enum: ["Mami", "Sister"],
+    default: "Mami"
+  },
+  description: {
+    type: String,
+  },
+  coments: {type: Schema.Types.ObjectId, ref: ""},
+  geo: {
+    type: {
+      type: String,
+      enum: ['Point'],
+      default: 'Point',
+    },
+    coordinates: {
+      type: [Number],
+      default: [0, 0],
+    }
+  },
+
 }, {
   timestamps: true,
   toJSON: {
@@ -33,6 +50,11 @@ const userSchema = new Schema({
     }
   }
 });
+
+userSchema.index({
+  location: '2dsphere'
+});
+
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
