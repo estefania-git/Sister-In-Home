@@ -14,7 +14,7 @@ router.post('/signup', (req, res, next) => {
     const {
         username,
         password,
-        picture
+        role
     } = req.body
 
     if (!username || !password) {
@@ -55,11 +55,12 @@ router.post('/signup', (req, res, next) => {
         const newUser = new User({
             username: username,
             password: hashPass,
-            // picture
+            role: role
         });
 
         newUser.save(err => {
             if (err) {
+                console.log(err)
                 res.status(400).json({
                     message: 'Saving user to database went wrong.'
                 });

@@ -24,7 +24,7 @@ export default class Login extends Component {
     .then(
       (user) => {
         setUser(user)
-        history.push("/")
+        history.push("/profile")
       },
       (error) => {
         console.error(error)

@@ -18,53 +18,53 @@ let users = [{
 ]
 
 const babySisters = [{
-        name: "a",
+        username: "a1",
+        password: bcrypt.hashSync("a1", bcrypt.genSaltSync(bcryptSalt)),
+        role: "mami",
         description: "b",
         coment: "c",
         geo: {
             coordinates: [40.350396, -3.688527]
         },
-        done: false,
-        role: "sister"
 
         // valoraciones
     },
     {
-        name: "a2",
+        username: "a2",
+        password: bcrypt.hashSync("a2", bcrypt.genSaltSync(bcryptSalt)),
+        role: "sister",
         description: "b2",
         coment: "c2",
         geo: {
             coordinates: [40.351999, -3.696735]
         },
-        done: false,
-        role: "sister"
 
         // valoraciones
     },
-    {
-        name: "mami 1",
-        description: "b2",
-        coment: "c2",
-        geo: {
-            coordinates: [40.351999, -3.56735]
-        },
-        done: false,
-        role: "mami"
+    // {
+    //     name: "mami 1",
+    //     description: "b2",
+    //     coment: "c2",
+    //     geo: {
+    //         coordinates: [40.351999, -3.56735]
+    //     },
+    //     done: false,
+    //     role: "mami"
 
-        // valoraciones
-    },
-    {
-        name: "mami 2",
-        description: "b2",
-        coment: "c2",
-        geo: {
-            coordinates: [40.351999, -3.496735]
-        },
-        done: false,
-        role: "mami"
+    //     // valoraciones
+    // },
+    // {
+    //     name: "mami 2",
+    //     description: "b2",
+    //     coment: "c2",
+    //     geo: {
+    //         coordinates: [40.351999, -3.496735]
+    //     },
+    //     done: false,
+    //     role: "mami"
 
-        // valoraciones
-    },
+    //     // valoraciones
+    // },
 ];
 
 mongoose
@@ -74,17 +74,11 @@ mongoose
     .then(x => {
         console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
 
-        BabySister
+        User
             .deleteMany()
             .then(() => {
-                BabySister
+                User
                     .insertMany(babySisters)
-                    .then(() => {
-                        return User.deleteMany()
-                    })
-                    .then(() => {
-                        return User.create(users)
-                    })
                     .then(usersCreated => {
                         console.log(`${usersCreated.length} users created with the following id:`);
                         console.log(usersCreated.map(u => u._id));
