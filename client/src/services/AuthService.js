@@ -9,7 +9,6 @@ class AuthService {
     }
 
     signup = user => {
-        console.log(user, process.env.REACT_APP_API_URL);
         return this.instance
             .post("/signup", user)
             .then(res => Promise.resolve(res.data))

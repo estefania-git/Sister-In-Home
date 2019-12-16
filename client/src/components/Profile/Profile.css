@@ -1,0 +1,13 @@
+.photo{
+  
+ 
+}
+
+
+.photo img{
+    height: 300px;
+    width: 300px;
+   margin-right: 80%;
+
+   border: 3px rgb(52, 58, 63) solid;
+}
