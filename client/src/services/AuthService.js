@@ -38,13 +38,30 @@ class AuthService {
             .then(res => Promise.resolve(res.data))
             .catch(error => console.error(error));
     };
-    
+
     logout = () => {
         return this.instance
             .post("/logout", {})
             .then(response => response.data)
             .catch(error => console.error(error));
     };
+
+    updateUser = (user) => {
+        return this.instance
+            .post("/updateUser", user)
+            .then(response => response.data)
+            .catch(error => console.error(error));
+    };
+
+    updateImage = (user) => {
+         const formData = new FormData();
+         Object.keys(user).forEach(key => formData.append(key, user[key]));
+         return this.instance
+        .post("/updateImage", formData)
+        .then(response => response.data)
+        .catch(error => console.error(error));
+    }
 }
+
 
 export default AuthService;

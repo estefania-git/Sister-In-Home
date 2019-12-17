@@ -12,7 +12,8 @@ export default class SignUp extends Component {
   state = {
     username: "",
     password: "",
-    role: "Mami"
+    role: "Mami",
+    description: ""
   };
 
   handleChange = e => {
@@ -51,26 +52,41 @@ export default class SignUp extends Component {
     this.setState({...this.state, role: e.target.value});
     };
 
+  
+
   render() {
-    const { username, password, role } = this.state;
+    const { username, password, role, description } = this.state;
     return (
       <div>
         <PageTitle color="black">Sign Up</PageTitle>
         <br />
         <Form id="form" onSubmit={this.handleSignUp}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+          <Form.Group controlId="formBasicUsername">
+            <Form.Label>User Name</Form.Label>
             <Form.Control
               type="text"
               name="username"
-              placeholder="Enter email"
+              placeholder="Enter Username"
               value={username}
               required
               onChange={this.handleChange}
             />
             <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
+              We'll never share your User Name with anyone else.
             </Form.Text>
+          </Form.Group>
+
+
+          <Form.Group controlId="formBasicDescription">
+            <Form.Label>Description</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Add a Description"
+              value={description}
+              name="description"
+              
+              onChange={this.handleChange}
+            />
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
@@ -85,7 +101,7 @@ export default class SignUp extends Component {
             />
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlSelect1">
-            <Form.Label>Example select</Form.Label>
+            <Form.Label>Example select Role</Form.Label>
             <Form.Control
               onChange={e => {
                 this.role(e);

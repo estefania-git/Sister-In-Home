@@ -9,12 +9,13 @@ const BabySister = require("../../models/SisterMami");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-
 router.post('/signup', (req, res, next) => {
     const {
         username,
         password,
+        description,
         role
+
     } = req.body
 
     if (!username || !password) {
@@ -55,6 +56,7 @@ router.post('/signup', (req, res, next) => {
         const newUser = new User({
             username: username,
             password: hashPass,
+            description: description,
             role: role
         });
 
@@ -162,6 +164,34 @@ router.get("/sisters", (req, res) => {
     BabySister.find({
         role: "sister"
     }).then(babySistersPayload => res.json(babySistersPayload))
+})
+
+router.post("/updateUser", (req, res) => {
+    const {
+        id,
+        username,
+        description
+    } = req.body
+    User.findByIdAndUpdate(id, {
+            $set: {
+                username: username,
+                description: description
+            }
+        }, {
+            new: true
+        })
+        .then(userUpdated => res.json(userUpdated))
+        .catch(err => console.log(err))
+})
+
+router.post("/updateImage", uploader.single("photo"), (req, res) => {
+    User.findByIdAndUpdate(req.body.id, {
+            picture: req.file.secure_url
+        }, {
+            new: true
+        })
+        .then(userUpdated => res.json(userUpdated))
+        .catch(err => console.log(err))
 })
 
 module.exports = router;

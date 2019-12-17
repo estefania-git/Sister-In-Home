@@ -97,7 +97,7 @@ class App extends Component {
             </Switch>
           ) : (
             <Switch>
-              <Route exact path="/profile" render={() => <Profile user={this.state.user} picture={this.state.picture} />} />
+                <Route exact path="/profile" render={(match) => <Profile {...match} user={this.state.user} picture={this.state.picture} setUser={this.setUser}  />} />
               <Route exact path="/search" render={() => <MapContainer />} />
               
             </Switch>
