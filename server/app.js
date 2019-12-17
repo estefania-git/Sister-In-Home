@@ -14,18 +14,17 @@ const flash = require("connect-flash");
 const cors = require("cors");
 
 mongoose
-  .connect(´${process.env.BBDDATLAS}´
-      , {
-        useNewUrlParser: true
-      })
-    .then(x => {
-      console.log(
-        `Connected to Mongo! Database name: "${x.connections[0].name}"`
-      );
-    })
-    .catch(err => {
-      console.error("Error connecting to mongo", err);
-    });
+  .connect(`${process.env.BBDDLOCAL}`, {
+    useNewUrlParser: true
+  })
+  .then(x => {
+    console.log(
+      `Connected to Mongo! Database name: "${x.connections[0].name}"`
+    );
+  })
+  .catch(err => {
+    console.error("Error connecting to mongo", err);
+  });
 
     const app_name = require("./package.json").name;
     const debug = require("debug")(
@@ -73,4 +72,13 @@ mongoose
 
     const authRoutes = require("./routes/api/auth.routes"); app.use("/api/auth", authRoutes);
 
+<<<<<<< HEAD
     module.exports = app;
+=======
+
+app.use((req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
+
+module.exports = app;
+>>>>>>> bd7c0f1b54382e42baad25681a6bfbcc820d5d73
