@@ -14,7 +14,7 @@ const flash = require("connect-flash");
 const cors = require("cors");
 
 mongoose
-  .connect("mongodb://localhost/sister-in-home", {
+  .connect(`${process.env.BBDDLOCAL}`, {
     useNewUrlParser: true
   })
   .then(x => {
@@ -78,5 +78,10 @@ app.use("/api", index);
 
 const authRoutes = require("./routes/api/auth.routes");
 app.use("/api/auth", authRoutes);
+
+
+app.use((req, res) => {
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 module.exports = app;
