@@ -68,7 +68,7 @@ const babySisters = [{
 ];
 
 mongoose
-    .connect("mongodb://localhost/sister-in-home", {
+    .connect(`${process.env.BBDDLOCAL}`, {
         useNewUrlParser: true
     })
     .then(x => {
