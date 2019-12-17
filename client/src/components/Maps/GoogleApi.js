@@ -145,6 +145,7 @@ export class MapContainer extends Component {
                     <li>{sister.username}</li>
                     <li>{sister.description}</li>
                   </ul>
+                  <button onClick="">Chat with {sister.username}</button>
                 </div>
               );
             })}
