@@ -3,7 +3,7 @@ require("dotenv").config();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const express = require("express");
-const favicon = require("serve-favicon");
+
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
@@ -12,9 +12,9 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 const flash = require("connect-flash");
 const cors = require("cors");
-
+console.log(process.env.BBDDATLAS)
 mongoose
-  .connect(`${process.env.BBDDLOCAL}`, {
+  .connect(`${process.env.BBDDATLAS}`, {
     useNewUrlParser: true
   })
   .then(x => {
@@ -42,7 +42,7 @@ app.use(
   })
 );
 app.use(cookieParser());
-app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
+// app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
 // Express View engine setup
 
@@ -69,7 +69,7 @@ require("./passport")(app);
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3000"]
+    origin: ["http://localhost:3000", "https://sister-in-home.herokuapp.com/"]
   })
 );
 
@@ -78,7 +78,6 @@ app.use("/api", index);
 
 const authRoutes = require("./routes/api/auth.routes");
 app.use("/api/auth", authRoutes);
-
 
 app.use((req, res) => {
   res.sendFile(__dirname + "/public/index.html");

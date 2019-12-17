@@ -98,14 +98,14 @@ class App extends Component {
           ) : (
             <Switch>
                 <Route exact path="/profile" render={(match) => <Profile {...match} user={this.state.user} picture={this.state.picture} setUser={this.setUser}  />} />
-              <Route exact path="/search" render={() => <MapContainer />} />
+              <Route exact path="/search" render={() => <MapContainer user={this.state.user} />} />
               
             </Switch>
              
           )}
-          <footer>
+          {/* <footer>
             <Footer></Footer>
-          </footer>
+          </footer> */}
         </section>
        
       </div>
