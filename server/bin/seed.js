@@ -1,3 +1,6 @@
+require("dotenv").config();
+
+
 const mongoose = require("mongoose");
 const BabySister = require("../models/SisterMami");
 const bcrypt = require("bcrypt");
@@ -90,3 +93,17 @@ mongoose
     });
   })
   .catch(err => console.error("Error connecting to mongo", err));
+
+
+// mongoose
+//   .connect(`${process.env.BBDDATLAS}`, {
+//     useNewUrlParser: true
+//   })
+//   .then(x => {
+//     console.log(
+//       `Connected to Mongo! Database name: "${x.connections[0].name}"`
+//     );
+//   })
+//   .catch(err => {
+//     console.error("Error connecting to mongo", err);
+//   });
