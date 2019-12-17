@@ -36,7 +36,7 @@ const SisterMamiSchema = new Schema({
     },
     role: {
         type: String,
-        enum: ["mami", "sister"]
+        enum: ["Mami", "Sister"]
     }
 }, {
     timestamps: true,
