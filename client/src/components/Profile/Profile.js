@@ -11,14 +11,15 @@ export default class Profile extends Component {
             id: this.props.user.id,
             username: this.props.user.username,
             description: this.props.user.description,
-            picture: this.props.user.picture
+            photo: this.props.user.picture
         }
     }
 
     handleChange = e => {
         const { name, value } = e.target;
         if (name === "photo") {
-          this.setState({ ...this.state, picture: e.target.files[0] });
+          console.log(e.target)
+          this.setState({ ...this.state, photo: e.target.files[0] });
         } else {
           this.setState({ ...this.state, [name]: value });
         }
@@ -28,7 +29,7 @@ export default class Profile extends Component {
     handleSubmitImage = e => {
         e.preventDefault();
         const { history, setUser } = this.props;
-        this.authService.updateImage({id: this.state.id, photo: this.state.picture})
+        this.authService.updateImage({id: this.state.id, photo: this.state.photo})
         .then(
           user => {
             setUser(user);
@@ -75,7 +76,7 @@ export default class Profile extends Component {
             <Form.Control
               type="file"
               placeholder="Change your Image"
-              name="picture"
+              name="photo"
               onChange={this.handleChange}
             />
           </Form.Group>

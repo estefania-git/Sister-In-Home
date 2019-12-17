@@ -72,8 +72,8 @@ export class MapContainer extends Component {
           // onReady={this.fetchPlaces}
           // visible={false}
           initialCenter={{
-            lat: 40.4167,
-            lng: -3.703254
+            lat: 40.392303,
+            lng: -3.6996187
           }}
           zoom={15}
           onClick={this.onMapClicked}
@@ -120,10 +120,16 @@ export class MapContainer extends Component {
           {this.props.user.role === "Sister" &&
             this.state.mamis.map(mami => {
               return (
-                <ul>
-                  <li>{mami.username}</li>
-                  <li>{mami.description}</li>
-                </ul>
+                <div className="div-map">
+                  <div className="photo-map">
+                    <img src={mami.picture} alt="" />
+                  </div>
+                  <ul>
+                    <li>{mami.username}</li>
+                    <li>{mami.description}</li>
+                  </ul>
+                  <button onClick="">Chat with {mami.username}</button>
+                </div>
               );
             })}
         </div>
@@ -131,10 +137,15 @@ export class MapContainer extends Component {
           {this.props.user.role === "Mami" &&
             this.state.sisters.map(sister => {
               return (
-                <ul>
-                  <li>{sister.username}</li>
-                  <li>{sister.description}</li>
-                </ul>
+                <div className="div-map">
+                  <div className="photo-map">
+                    <img src={sister.picture} alt="" />
+                  </div>
+                  <ul>
+                    <li>{sister.username}</li>
+                    <li>{sister.description}</li>
+                  </ul>
+                </div>
               );
             })}
         </div>

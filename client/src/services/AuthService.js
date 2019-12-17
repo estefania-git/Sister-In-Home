@@ -55,11 +55,9 @@ class AuthService {
 
   updateImage = user => {
     const formData = new FormData();
-    // Object.keys(user).forEach(key => {
-    //   debugger;
-    //   formData.append(key, user[key]);
-    // });
-    // debugger;
+    Object.keys(user).forEach(key => {
+      formData.append(key, user[key]);
+    });
     formData.append("photo", user.photo);
 
     return this.instance

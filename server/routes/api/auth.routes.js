@@ -176,14 +176,13 @@ router.post("/updateUser", (req, res) => {
 });
 
 router.post("/updateImage", uploader.single("photo"), (req, res) => {
-  console.log(req.file);
-  // User.findByIdAndUpdate(req.body.id, {
-  //         picture: req.file.url
-  //     }, {
-  //         new: true
-  //     })
-  //     .then(userUpdated => res.json(userUpdated))
-  //     .catch(err => console.log(err))
+  User.findByIdAndUpdate(req.body.id, {
+          picture: req.file.url
+      }, {
+          new: true
+      })
+      .then(userUpdated => res.json(userUpdated))
+      .catch(err => console.log(err))
 });
 
 module.exports = router;
