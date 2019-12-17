@@ -20,7 +20,7 @@ let users = [{
 const babySisters = [{
         username: "a1",
         password: bcrypt.hashSync("a1", bcrypt.genSaltSync(bcryptSalt)),
-        role: "mami",
+        role: "Mami",
         description: "b",
         coment: "c",
         geo: {
@@ -32,7 +32,7 @@ const babySisters = [{
     {
         username: "a2",
         password: bcrypt.hashSync("a2", bcrypt.genSaltSync(bcryptSalt)),
-        role: "sister",
+        role: "Sister",
         description: "b2",
         coment: "c2",
         geo: {
