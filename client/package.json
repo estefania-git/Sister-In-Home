@@ -10,6 +10,7 @@
     "bootstrap": "^4.4.1",
     "cloudinary": "^1.18.0",
     "cors": "^2.8.5",
+    "dotenv-cli": "^3.1.0",
     "google-maps-react": "^2.0.2",
     "multer": "^1.4.2",
     "multer-storage-cloudinary": "^2.2.1",
@@ -23,6 +24,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-dev": "dotenv -e .env.development react-scripts build",
+    "build-prod": "dotenv -e .env.production react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
