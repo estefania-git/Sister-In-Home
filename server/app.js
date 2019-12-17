@@ -14,7 +14,7 @@ const flash = require("connect-flash");
 const cors = require("cors");
 
 mongoose
-  .connect(`${process.env.BBDDLOCAL}`, {
+  .connect(`${process.env.BBDDATLAS}`, {
     useNewUrlParser: true
   })
   .then(x => {
@@ -26,59 +26,61 @@ mongoose
     console.error("Error connecting to mongo", err);
   });
 
-    const app_name = require("./package.json").name;
-    const debug = require("debug")(
-      `${app_name}:${path.basename(__filename).split(".")[0]}`
-    );
+const app_name = require("./package.json").name;
+const debug = require("debug")(
+  `${app_name}:${path.basename(__filename).split(".")[0]}`
+);
 
-    const app = express();
+const app = express();
 
-    // Middleware Setup
-    app.use(logger("dev")); app.use(bodyParser.json()); app.use(
-      bodyParser.urlencoded({
-        extended: false
-      })
-    ); app.use(cookieParser()); app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
+// Middleware Setup
+app.use(logger("dev"));
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+app.use(cookieParser());
+app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
-    // Express View engine setup
+// Express View engine setup
 
-    // app.set('views', path.join(__dirname, 'views'));
-    // app.set('view engine', 'hbs');
-    // app.use(express.static(path.join(__dirname, 'public')));
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'hbs');
+// app.use(express.static(path.join(__dirname, 'public')));
 
-    // default value for title local
+// default value for title local
 
-    // Enable authentication using session + passport
-    app.use(
-      session({
-        secret: "irongenerator",
-        resave: true,
-        saveUninitialized: true,
-        store: new MongoStore({
-          mongooseConnection: mongoose.connection
-        })
-      })
-    ); require("./passport")(app);
-    // app.use(flash());
+// Enable authentication using session + passport
+app.use(
+  session({
+    secret: "irongenerator",
+    resave: true,
+    saveUninitialized: true,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection
+    })
+  })
+);
+require("./passport")(app);
+// app.use(flash());
 
-    app.use(
-      cors({
-        credentials: true,
-        origin: ["http://localhost:3000"]
-      })
-    );
+app.use(
+  cors({
+    credentials: true,
+    origin: ["http://localhost:3000", "https://sister-in-home.herokuapp.com/"]
+  })
+);
 
-    const index = require("./routes/api/index"); app.use("/api", index);
+const index = require("./routes/api/index");
+app.use("/api", index);
 
-    const authRoutes = require("./routes/api/auth.routes"); app.use("/api/auth", authRoutes);
-
-<<<<<<< HEAD
-    module.exports = app;
-=======
+const authRoutes = require("./routes/api/auth.routes");
+app.use("/api/auth", authRoutes);
 
 app.use((req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 
 module.exports = app;
->>>>>>> bd7c0f1b54382e42baad25681a6bfbcc820d5d73
