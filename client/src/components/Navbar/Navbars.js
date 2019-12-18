@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Switch, Route, Link, withRouter } from "react-router-dom";
-
+import "./Navbars.css"
 
 export default class Navbars extends Component {
   logout() {
