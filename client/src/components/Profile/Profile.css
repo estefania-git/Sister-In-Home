@@ -1,47 +1,38 @@
+.photo img {
+  height: 300px;
+  width: 300px;
+  margin-right: 80%;
 
-
-
-.photo img{
-    height: 300px;
-    width: 300px;
-   margin-right: 80%;
-
-   border: 3px rgb(52, 58, 63) solid;
+  border: 3px rgb(52, 58, 63) solid;
 }
 
+.div-container {
+  display: inline-flex;
+}
 
-
-    .div-container{
-display: inline-flex
-
-    }
-
-
-
-.div-profile{
-   width: 40%;
- margin-left: 7%;
+.div-profile {
+  width: 40%;
+  margin-left: 7%;
   color: whitesmoke;
- 
 }
 
-
-.CardTitle h1{
-    color:whitesmoke;
+.CardTitle h1 {
+  color: whitesmoke;
 }
 
-h1{
-    color: rgb(66, 215, 252);
+h1 {
+  color: rgb(66, 215, 252);
 }
 
-.ep h2{
- color :rgb(243, 65, 121)
+.ep h2 {
+  color: rgb(243, 65, 121);
 }
 
-.ds h3,h4{
-    color: whitesmoke;
+.ds h3,
+h4 {
+  color:  rgb(66, 215, 252);
 }
 
-.nv h1{
-color: rgb(66, 215, 252);
+.nv h1 {
+  color: rgb(66, 215, 252);
 }

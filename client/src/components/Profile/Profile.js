@@ -3,8 +3,7 @@ import './Profile.css'
 import {
   Form, Button} from "react-bootstrap";
 import AuthService from "../../services/AuthService";
-import {
-  Card, CardImg, CardText, CardBody,
+import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle
 } from 'reactstrap';
 
@@ -132,7 +131,9 @@ export default class Profile extends Component {
         </Form>
               </CardBody>
         </Card>
+            <br></br>
         </div>
+        
         </div>
       </div>
     );

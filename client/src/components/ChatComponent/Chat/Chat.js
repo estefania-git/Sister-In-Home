@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import InputMess from "../InputMess/InputMess";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, ListGroup, Col, Container} from 'react-bootstrap'
+import { Row, ListGroup, Col, Container, Button} from 'react-bootstrap'
 import './Chat.css'
 import io from 'socket.io-client'
-
+import { Link } from "react-router-dom";
 
 
 
@@ -62,6 +62,11 @@ export default class Chat extends Component {
     console.log(this.state);
     return (
       <div>
+      <div className="wrapper">
+        <Link to="/search">
+      <Button className="b-chat">Go to Back</Button>
+        </Link>
+        </div>
       <Container id="cont">
         <Row>
 

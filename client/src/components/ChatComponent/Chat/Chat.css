@@ -29,3 +29,9 @@ h6{
 .list-group-item{
   padding: 0;
 }
+
+.wrapper{
+  width: 100%;
+  display: flex;
+  padding: 2%;
+}
