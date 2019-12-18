@@ -13,10 +13,12 @@ export default class Login extends Component {
     username: '',
     password: ''
   }
+
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({...this.state, [name]:value})
   }
+  
   handleLogin = (e) => {
     const { setUser, history } = this.props;
     e.preventDefault()
@@ -48,7 +50,6 @@ export default class Login extends Component {
                 We'll never share your username with anyone else.
     </Form.Text>
             </Form.Group>
-
             <Form.Group controlId="formBasicPassword">
             <Form.Label><h4>Password</h4></Form.Label>
             <Form.Control type="password"  name="password" placeholder="Password" value={password} onChange={this.handleChange}/>

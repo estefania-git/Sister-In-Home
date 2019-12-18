@@ -1,9 +1,9 @@
-import React, { Component, history } from "react";
+import React, { Component } from "react";
 import {
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
-
+import { Link } from "react-router-dom";
 import {
   Map,
   InfoWindow,
@@ -13,6 +13,9 @@ import {
 } from "google-maps-react";
 import "./GoogleApi.css";
 import Axios from "axios";
+
+
+
 
 const style = {
   width: "50%",
@@ -27,13 +30,6 @@ export class MapContainer extends Component {
     mamis: [],
     sisters: []
   };
-
-  //  fetchPlaces(mapProps, map) {
-  //    const {
-  //      google
-  //    } = mapProps;
-  //    const service = new google.maps.places.PlacesService(map);
-  //  }
 
   onMarkerClick = (props, marker, e) =>
     this.setState({
@@ -51,13 +47,19 @@ export class MapContainer extends Component {
     }
   };
 
+  goChat = () => {
+    this.props.history.push("/chat")
+  }
+
   componentDidMount() {
-    Axios.get("http://localhost:5000/api/auth/mamis").then(mamisFromDB => {
+    Axios.get(`${process.env.REACT_APP_API_URL}/auth/mamis`).then(mamisFromDB => {
       this.setState({
         ...this.state,
         mamis: mamisFromDB.data
       });
-    }).then(Axios.get("http://localhost:5000/api/auth/sisters").then(sistersFromDB => {
+
+
+    }).then(Axios.get(`${process.env.REACT_APP_API_URL}/auth//sisters`).then(sistersFromDB => {
       this.setState({
         ...this.state,
         sisters: sistersFromDB.data
@@ -69,13 +71,10 @@ export class MapContainer extends Component {
     return (
       <>
       <div className="map">
-        {/* <button id="go-back" onClick={() => history.goBack()}>Go back</button> */}
         <Map
           id="map"
           google={this.props.google}
           style={style}
-          // onReady={this.fetchPlaces}
-          // visible={false}
           initialCenter={{
             lat: 40.392303,
             lng: -3.6996187
@@ -116,11 +115,10 @@ export class MapContainer extends Component {
             visible={this.state.showingInfoWindow}
           >
             <div>
-              <h1> {this.state.selectedPlace.name} </h1>{" "}
-            </div>{" "}
+              <h1> {this.state.selectedPlace.name} </h1>
+            </div>
           </InfoWindow>
-          {/* <Listing places={this.state.places} /> */}
-        </Map>{" "}
+        </Map>
         <div>
           </div>
         
@@ -136,7 +134,9 @@ export class MapContainer extends Component {
                       <CardTitle className="CardTitle"> <h1>{mami.username} </h1></CardTitle>
                         
                       <CardText><h3>{mami.description}</h3></CardText>
-                        <Button onClick="">Chat with {mami.username}</Button>
+                      <Link to="/chat">
+                        <Button>Chat with {mami.username}</Button>
+                      </Link>
                       </CardBody>
                     </Card>
                     <br/>
@@ -157,7 +157,9 @@ export class MapContainer extends Component {
                       <CardBody>
                       <CardTitle className="CardTitle"> <h1>{sister.username}</h1></CardTitle>
                       <CardText><h3>{sister.description}</h3></CardText>
-                        <Button onClick="">Chat with {sister.username}</Button>
+                      <Link to="/chat">
+                        <Button>Chat with {sister.username}</Button>
+                      </Link>
                       </CardBody>
                     </Card>
                   <br />
@@ -169,7 +171,7 @@ export class MapContainer extends Component {
             })}
         </div>
       </>
-    );
+    )
   }
 }
 

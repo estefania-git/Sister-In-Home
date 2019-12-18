@@ -69,7 +69,7 @@ require("./passport")(app);
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3000", "https://sister-in-home.herokuapp.com/"]
+    origin: ["http://localhost:3000", "https://sister-in-home.herokuapp.com/","http://192.168.96.121:3000"]
   })
 );
 
