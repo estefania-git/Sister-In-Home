@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Switch, Route, Link, withRouter } from "react-router-dom";
 
+
 export default class Navbars extends Component {
   logout() {
     localStorage.clear();
@@ -13,7 +14,7 @@ export default class Navbars extends Component {
         {this.props.user == null ? (
           <div id="home">
             <Navbar bg="dark" variant="dark">
-              <Navbar.Brand href="">Sister In Home</Navbar.Brand>
+              <Navbar.Brand href="/"> <h1>Sister In Home </h1> </Navbar.Brand>
               <Nav className="mr-auto">
                 <Link to="/">Home</Link>
                 <Link to="/signup">Signup</Link>
@@ -24,7 +25,7 @@ export default class Navbars extends Component {
         ) : (
           <div id="home">
             <Navbar bg="dark" variant="dark">
-              <Navbar.Brand href="">Sister In Home</Navbar.Brand>
+                <Navbar.Brand href=""> <h1>Sister In Home</h1></Navbar.Brand>
               <Nav className="mr-auto">
                 <Link to="/profile"> Profile</Link>
 
