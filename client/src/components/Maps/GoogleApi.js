@@ -133,9 +133,9 @@ export class MapContainer extends Component {
                     <Card>
                       <CardImg top width="100%" src={mami.picture} alt="Card image cap" />
                       <CardBody>
-                        <CardTitle>{mami.username}</CardTitle>
+                      <CardTitle className="CardTitle"> <h1>{mami.username} </h1></CardTitle>
                         
-                        <CardText>{mami.description}</CardText>
+                      <CardText><h3>{mami.description}</h3></CardText>
                         <Button onClick="">Chat with {mami.username}</Button>
                       </CardBody>
                     </Card>
@@ -155,8 +155,8 @@ export class MapContainer extends Component {
                     <Card>
                       <CardImg top width="100%" src={sister.picture} />
                       <CardBody>
-                        <CardTitle>{sister.username}</CardTitle>
-                        <CardText>{sister.description}</CardText>
+                      <CardTitle className="CardTitle"> <h1>{sister.username}</h1></CardTitle>
+                      <CardText><h3>{sister.description}</h3></CardText>
                         <Button onClick="">Chat with {sister.username}</Button>
                       </CardBody>
                     </Card>
