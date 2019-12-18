@@ -3,6 +3,8 @@ import InputMess from "../InputMess/InputMess";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, ListGroup, Col, Container} from 'react-bootstrap'
 import './Chat.css'
+import io from 'socket.io-client'
+
 
 
 
@@ -11,11 +13,13 @@ export default class Chat extends Component {
     super(props);
     console.log(this.props);
     this.state = {
+      user: this.props.user.username,
       messages: [],
+      userList: [],
     };
 
     // Recibimos el socket por props, se creó en ChatComponent.js
-    this.socket = this.props.socket;
+    this.socket = io('http://192.168.96.121:5000')
 
     // Creamos un ".on" que escuchará los mensajes nuevos
     this.socket.on("newMessage", message => {
@@ -23,6 +27,11 @@ export default class Chat extends Component {
       mess.push(message);
       this.setState({ ...this.state, messages: mess });
     });
+
+    this.socket.on("list", userList => {
+      this.setState({ ...this.state, userList: userList });
+    });
+
   }
 
   // Este método recibe los textos que vienen del Input de los mensajes en el chat
@@ -30,7 +39,7 @@ export default class Chat extends Component {
     if(text.trim()==="")return
     let mess = {
       text: text,
-      user: this.props.user
+      user: this.props.user.username
     };
     // Este ".emit" le envia al server los mensajes que escribamos
     // El server se encargará de propagarlos
@@ -44,10 +53,15 @@ export default class Chat extends Component {
     document.getElementById('chatBox').scrollTop = document.getElementById('chatBox').scrollHeight
   }
 
+  componentDidMount=()=>{
+    this.socket.emit("newUser", this.props.user.username)
+  }
+
   // Renderiza la lista de usuarios, el box con el chat y el input para poder escribir mensajes.
   render() {
     console.log(this.state);
     return (
+      <div>
       <Container id="cont">
         <Row>
 
@@ -55,8 +69,8 @@ export default class Chat extends Component {
           <Col sm={3} id="userList">
             <h5>ACTIVE USERS:</h5>
             <ListGroup>
-              {this.props.list.map((elem, idx) => {
-                return elem===this.props.user ?
+              {this.state.userList.map((elem, idx) => {
+                return elem===this.state.user ?
                   <ListGroup.Item key={idx}><b>{elem}</b></ListGroup.Item>
                   :
                   <ListGroup.Item key={idx}>{elem}</ListGroup.Item>
@@ -82,7 +96,9 @@ export default class Chat extends Component {
             </div>
           </Col>
         </Row>
-      </Container>
+       </Container>
+       <br></br>
+      </div>
     );
   }
 }

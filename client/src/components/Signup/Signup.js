@@ -20,6 +20,7 @@ export default class SignUp extends Component {
     const { name, value } = e.target;
     this.setState({ ...this.state, [name]: value });
   };
+  
   handleSignUp = e => {
     e.preventDefault();
     const { history, setUser } = this.props;
@@ -116,7 +117,8 @@ export default class SignUp extends Component {
           <Button variant="primary" type="submit" value="Create account">
             Submit
           </Button>
-        </Form>
+          </Form>
+        <br />
       </div>
     );
   }

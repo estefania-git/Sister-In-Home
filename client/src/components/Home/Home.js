@@ -1,5 +1,5 @@
 import React, { Component , Link} from 'react'
-import Homes from './Home.css'
+import  './Home.css'
 import { Carousel , Navbar, Nav, Form, FormControl, Button} from "react-bootstrap";
 
 

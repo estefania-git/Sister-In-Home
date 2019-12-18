@@ -55,7 +55,10 @@ io.on("connection", socket => {
 
   socket.on("newUser", user => {
     console.log(`${user} connected`);
-    userList.push(user);
+    if(!userList.includes(user)){
+      userList.push(user);
+    }
+
     socket.emit("list", userList);
     socket.broadcast.emit("list", userList);
   });

@@ -14,6 +14,8 @@ import Profile from "./components/Profile/Profile";
 import Footer from "./components/Footer/Footer";
 import MapContainer from "./components/Maps/GoogleApi";
 
+import Chat from "./components/ChatComponent/Chat/Chat";
+
 
 class App extends Component {
   constructor(props) {
@@ -99,7 +101,7 @@ class App extends Component {
             <Switch>
                 <Route exact path="/profile" render={(match) => <Profile {...match} user={this.state.user} picture={this.state.picture} setUser={this.setUser}  />} />
               <Route exact path="/search" render={() => <MapContainer user={this.state.user} />} />
-              
+                <Route exact path="/chat" render={() => <Chat user={this.state.user} />} />
             </Switch>
              
           )}
