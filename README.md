@@ -1,47 +1,29 @@
 # Sister-In-Home
+This project is aimed at those mothers who do not know who to leave their children with. That's why this idea was born Sister in Home. In the application you can find the babysitters closest to your location, see their ratings, their description and choose the one that best suits your needs. You can start a conversation with them and reach an agreement.
 
-*Este proyecto está dirigido, para aquellas madres que no saben con quién dejar a sus hijos . Por eso nace esta idea Sister in Home . En la apliacación pudes encontrar a las niñeras más cercanas a tu localidad , ver sus valoraciones , su descripción  y escoger a la que más se ajuste a tus necesidades . Podrás entablar una conversación con ellas y llegar a un acuerdo.*
+# Installation
+To be able to open this project once the repository is cloned you have to: Open client folder and do npm i, to install all the dependencies. Once this is done you can do npm start to see the project. Open Server folder and do npm i, to install all dependencies. Once this is done you can do npm run dev to activate the database.
 
-
-# Instalación 
-
-
-Para poder abrir este proyecto una vez clonado el repositorio tienes que : 
-Abrir carpeta client y hacer npm i , para instalar todas las dependencias . Una vez realizado esto puedes hacer npm start para ver el proyecto .
-Abrir carpeta Server y hacer npm i , para instalar todas las dependencias . Una vez realizado esto puedes hacer npm run dev para activar la base de datos . 
- 
-# Construido con 🔧 
-
-- React Js 
+# Built with 🔧
+- React Js
 - Mongo
 - Javascript
 - Css
-- HTML 
-- Bootstrap 
+- HTML
+- Bootstrap
 
+# Contributing
+Please read the CONTRIBUTING.md for details of our code of conduct, and the process to send us pull requests.
 
-# Contribuyendo
-
-Por favor lee el CONTRIBUTING.md para detalles de nuestro código de conducta, y el proceso para enviarnos pull requests.
-
-
-
-# Autores 
-
+# Authors
 Estefanía del Castillo Medrano.
 
-# Licencia 
+# License
+This project is under License (Your License) - see the LICENSE.md file for details.
 
-Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo LICENSE.md para detalles .
-
-# Expresiones de Gratitud 
- 
-- Gracias por todo a aquellas personas que han hecho posible este proyecto .
+# Expressions of Gratitude
+Thanks for everything to those people who have made this project possible.
 
 
 
-
-
-
-
-Con amor Estefanía ♥️
+With love Estefanía ♥️
