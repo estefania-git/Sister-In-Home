@@ -41,10 +41,10 @@ export default class Login extends Component {
         <br/>
           <Form  id="form" onSubmit={this.handleLogin}>
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="text" name="username" placeholder="Enter email" value={username}  onChange={this.handleChange} />
+              <Form.Label>User Name</Form.Label>
+              <Form.Control type="text" name="username" placeholder="Enter username" value={username}  onChange={this.handleChange} />
               <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
+                We'll never share your username with anyone else.
     </Form.Text>
             </Form.Group>
 

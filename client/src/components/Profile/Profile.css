@@ -1,7 +1,4 @@
-.photo{
-  
- 
-}
+
 
 
 .photo img{
@@ -12,9 +9,39 @@
    border: 3px rgb(52, 58, 63) solid;
 }
 
-.description{
-      height: 200px;
-      width: 200px;
-      margin-right: 40%;
-  
+
+
+    .div-container{
+display: inline-flex
+
     }
+
+
+
+.div-profile{
+   width: 40%;
+ margin-left: 7%;
+  color: whitesmoke;
+ 
+}
+
+
+.CardTitle h1{
+    color:whitesmoke;
+}
+
+h1{
+    color: rgb(66, 215, 252);
+}
+
+.ep h2{
+ color :rgb(243, 65, 121)
+}
+
+.ds h3,h4{
+    color: whitesmoke;
+}
+
+.nv h1{
+color: rgb(66, 215, 252);
+}

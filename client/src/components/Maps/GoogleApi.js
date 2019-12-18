@@ -1,4 +1,8 @@
 import React, { Component, history } from "react";
+import {
+  Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 
 import {
   Map,
@@ -12,7 +16,7 @@ import Axios from "axios";
 
 const style = {
   width: "50%",
-  height: "50%"
+  height: "70%"
 };
 
 export class MapContainer extends Component {
@@ -64,6 +68,7 @@ export class MapContainer extends Component {
   render() {
     return (
       <>
+      <div className="map">
         {/* <button id="go-back" onClick={() => history.goBack()}>Go back</button> */}
         <Map
           id="map"
@@ -117,36 +122,49 @@ export class MapContainer extends Component {
           {/* <Listing places={this.state.places} /> */}
         </Map>{" "}
         <div>
+          </div>
+        
           {this.props.user.role === "Sister" &&
             this.state.mamis.map(mami => {
               return (
+                
+              
                 <div className="div-map">
-                  <div className="photo-map">
-                    <img src={mami.picture} alt="" />
+                    <Card>
+                      <CardImg top width="100%" src={mami.picture} alt="Card image cap" />
+                      <CardBody>
+                        <CardTitle>{mami.username}</CardTitle>
+                        
+                        <CardText>{mami.description}</CardText>
+                        <Button onClick="">Chat with {mami.username}</Button>
+                      </CardBody>
+                    </Card>
+                    <br/>
                   </div>
-                  <ul>
-                    <li>{mami.username}</li>
-                    <li>{mami.description}</li>
-                  </ul>
-                  <button onClick="">Chat with {mami.username}</button>
-                </div>
+                  
+                 
               );
             })}
-        </div>
-        <div>
+        
+       
           {this.props.user.role === "Mami" &&
             this.state.sisters.map(sister => {
               return (
-                <div className="div-map">
-                  <div className="photo-map">
-                    <img src={sister.picture} alt="" />
+                
+                  <div className="div-map">
+                    <Card>
+                      <CardImg top width="100%" src={sister.picture} />
+                      <CardBody>
+                        <CardTitle>{sister.username}</CardTitle>
+                        <CardText>{sister.description}</CardText>
+                        <Button onClick="">Chat with {sister.username}</Button>
+                      </CardBody>
+                    </Card>
+                  <br />
                   </div>
-                  <ul>
-                    <li>{sister.username}</li>
-                    <li>{sister.description}</li>
-                  </ul>
-                  <button onClick="">Chat with {sister.username}</button>
-                </div>
+                 
+                  
+                
               );
             })}
         </div>

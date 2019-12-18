@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import './Profile.css'
-import { Form, Button } from "react-bootstrap";
+import {
+  Form, Button} from "react-bootstrap";
 import AuthService from "../../services/AuthService";
+import {
+  Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle
+} from 'reactstrap';
 
 export default class Profile extends Component {
     constructor(props){
@@ -62,18 +67,29 @@ export default class Profile extends Component {
     return (
       <div>
         <h1> Welcome {this.props.user.username}</h1>
-        <p> Description : <br/> {this.props.user.description}</p>
-
-        <div className="photo">
-          <img src={this.props.user.picture} alt="" />
+<br/>
+<div className="div-container">
+        <div className="div-profile">
+          <Card>
+              <CardTitle className="CardTitle"> <h1>Your Profile</h1> </CardTitle>
+            <CardImg top width="100%" src={this.props.user.picture} alt="Card image cap" />
+            <CardBody>
+                <CardSubtitle className="ep"> <h2>{this.props.user.username}</h2></CardSubtitle>
+                <CardText className="ds"><h3>Description : </h3><br /> <h4>{this.props.user.description}</h4></CardText>
+             </CardBody>
+          </Card>
+            <br />
         </div>
-        <br />
-       <div>
-       <h3> Edit your Profile</h3>
-        <Form onSubmit={(e)=>{this.handleSubmitImage(e)}}>
-          <Form.Group controlId="formBasicDescription">
-            <Form.Label>Edit Photo</Form.Label>
-            <Form.Control
+       
+        <div className="div-profile">
+        <Card>
+              <CardTitle className="CardTitle"><h1> Edit Profile </h1></CardTitle>
+              <CardImg top width="100%" src={this.props.user.picture} alt="Card image cap" />
+              <CardBody>
+              <Form onSubmit={(e)=>{this.handleSubmitImage(e)}}>
+              <Form.Group controlId="formBasicDescription">
+                    <Form.Label className="ep"><h2>Edit Photo</h2></Form.Label>
+              <Form.Control
               type="file"
               placeholder="Change your Image"
               name="photo"
@@ -86,7 +102,7 @@ export default class Profile extends Component {
         </Form>
         <Form id="form" onSubmit={this.handleSignUp}>
           <Form.Group controlId="formBasicUsername">
-            <Form.Label>User Name</Form.Label>
+                    <Form.Label> <h4>User Name</h4></Form.Label>
             <Form.Control
               type="text"
               name="username"
@@ -96,12 +112,10 @@ export default class Profile extends Component {
               onChange={this.handleChange}
             />
             <Form.Text className="text-muted">
-              We'll never share your User Name with anyone else.
             </Form.Text>
           </Form.Group>
-
           <Form.Group controlId="formBasicDescription">
-            <Form.Label>Description</Form.Label>
+                    <Form.Label> <h4>Description</h4></Form.Label>
             <Form.Control
               type="text"
               placeholder="Add a Description"
@@ -110,11 +124,13 @@ export default class Profile extends Component {
               onChange={this.handleChange}
             />
           </Form.Group>
-
-          <Button variant="primary" type="submit" value="Create account">
+         <Button variant="primary" type="submit" value="Create account">
             Submit
           </Button>
         </Form>
+              </CardBody>
+        </Card>
+        </div>
         </div>
       </div>
     );
