@@ -1,5 +1,12 @@
 #home a {
     color:rgb(255, 0, 128);
-    margin: 10px;
-    width: 375px;
+    margin: 10px 40px;
+
+  
+}
+
+
+
+.ml-auto{
+padding-right: 5%;
 }

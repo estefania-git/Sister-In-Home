@@ -64,7 +64,7 @@ export default class SignUp extends Component {
         <br />
         <Form id="form" onSubmit={this.handleSignUp}>
           <Form.Group controlId="formBasicUsername">
-            <Form.Label><h4>User Name</h4></Form.Label>
+            <Form.Label><h5>User Name</h5></Form.Label>
             <Form.Control
               type="text"
               name="username"
@@ -80,7 +80,7 @@ export default class SignUp extends Component {
 
 
           <Form.Group controlId="formBasicDescription">
-            <Form.Label><h4>Description</h4></Form.Label>
+            <Form.Label><h5>Description</h5></Form.Label>
             <Form.Control
               type="text"
               placeholder="Add a Description"
@@ -92,7 +92,7 @@ export default class SignUp extends Component {
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Label><h4>Password</h4></Form.Label>
+            <Form.Label><h5>Password</h5></Form.Label>
             <Form.Control
               type="password"
               placeholder="Password"
@@ -103,7 +103,7 @@ export default class SignUp extends Component {
             />
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlSelect1">
-            <Form.Label><h4>Example select Role</h4></Form.Label>
+            <Form.Label><h5>Example select Role</h5></Form.Label>
             <Form.Control
               onChange={e => {
                 this.role(e);

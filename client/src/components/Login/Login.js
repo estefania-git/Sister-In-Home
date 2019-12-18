@@ -44,14 +44,14 @@ export default class Login extends Component {
         <br/>
           <Form  id="form" onSubmit={this.handleLogin}>
             <Form.Group controlId="formBasicEmail">
-            <Form.Label><h4>User Name</h4></Form.Label>
+            <Form.Label><h5>User Name</h5></Form.Label>
               <Form.Control type="text" name="username" placeholder="Enter username" value={username}  onChange={this.handleChange} />
               <Form.Text className="text-muted">
                 We'll never share your username with anyone else.
     </Form.Text>
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
-            <Form.Label><h4>Password</h4></Form.Label>
+            <Form.Label><h5>Password</h5></Form.Label>
             <Form.Control type="password"  name="password" placeholder="Password" value={password} onChange={this.handleChange}/>
             </Form.Group>
            
