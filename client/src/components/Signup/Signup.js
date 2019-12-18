@@ -58,11 +58,12 @@ export default class SignUp extends Component {
     const { username, password, role, description } = this.state;
     return (
       <div>
-        <PageTitle color="black">Sign Up</PageTitle>
+      <br/>
+        <PageTitle color="black"><h1>Sign Up</h1></PageTitle>
         <br />
         <Form id="form" onSubmit={this.handleSignUp}>
           <Form.Group controlId="formBasicUsername">
-            <Form.Label>User Name</Form.Label>
+            <Form.Label><h4>User Name</h4></Form.Label>
             <Form.Control
               type="text"
               name="username"
@@ -78,7 +79,7 @@ export default class SignUp extends Component {
 
 
           <Form.Group controlId="formBasicDescription">
-            <Form.Label>Description</Form.Label>
+            <Form.Label><h4>Description</h4></Form.Label>
             <Form.Control
               type="text"
               placeholder="Add a Description"
@@ -90,7 +91,7 @@ export default class SignUp extends Component {
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label><h4>Password</h4></Form.Label>
             <Form.Control
               type="password"
               placeholder="Password"
@@ -101,7 +102,7 @@ export default class SignUp extends Component {
             />
           </Form.Group>
           <Form.Group controlId="exampleForm.ControlSelect1">
-            <Form.Label>Example select Role</Form.Label>
+            <Form.Label><h4>Example select Role</h4></Form.Label>
             <Form.Control
               onChange={e => {
                 this.role(e);

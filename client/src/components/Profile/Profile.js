@@ -99,7 +99,9 @@ export default class Profile extends Component {
           <Button variant="primary" type="submit" value="Create account">
             Submit
           </Button>
+         
         </Form>
+                <br />
         <Form id="form" onSubmit={this.handleSignUp}>
           <Form.Group controlId="formBasicUsername">
                     <Form.Label> <h4>User Name</h4></Form.Label>

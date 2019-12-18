@@ -36,12 +36,13 @@ export default class Login extends Component {
     const { username, password } = this.state;
     return (
       <div>
-        <PageTitle color="black">Login</PageTitle>
+      <br/>
+        <PageTitle color="black"><h1>Login</h1></PageTitle>
         
         <br/>
           <Form  id="form" onSubmit={this.handleLogin}>
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>User Name</Form.Label>
+            <Form.Label><h4>User Name</h4></Form.Label>
               <Form.Control type="text" name="username" placeholder="Enter username" value={username}  onChange={this.handleChange} />
               <Form.Text className="text-muted">
                 We'll never share your username with anyone else.
@@ -49,7 +50,7 @@ export default class Login extends Component {
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
+            <Form.Label><h4>Password</h4></Form.Label>
             <Form.Control type="password"  name="password" placeholder="Password" value={password} onChange={this.handleChange}/>
             </Form.Group>
            
