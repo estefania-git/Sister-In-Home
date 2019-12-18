@@ -18,7 +18,7 @@ Abrir carpeta Server y hacer npm i , para instalar todas las dependencias . Una 
 - Css
 - HTML 
 - Bootstrap 
-- 
+
 
 # Contribuyendo
 
@@ -28,8 +28,20 @@ Por favor lee el CONTRIBUTING.md para detalles de nuestro código de conducta, y
 
 # Autores 
 
+Estefanía del Castillo Medrano.
 
 # Licencia 
 
+Este proyecto está bajo la Licencia (Tu Licencia) - mira el archivo LICENSE.md para detalles .
 
 # Expresiones de Gratitud 
+ 
+- Gracias por todo a aquellas personas que han hecho posible este proyecto .
+
+
+
+
+
+
+
+Con amor Estefanía ♥️
