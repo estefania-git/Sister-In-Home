@@ -1,7 +1,13 @@
-import React, { Component , Link} from 'react'
-import  './Home.css'
-import { Carousel , Navbar, Nav, Form, FormControl, Button} from "react-bootstrap";
-
+import React, { Component, Link } from "react";
+import "./Home.css";
+import {
+  Carousel,
+  Navbar,
+  Nav,
+  Form,
+  FormControl,
+  Button
+} from "react-bootstrap";
 
 class Home extends Component {
   render() {
@@ -14,11 +20,12 @@ class Home extends Component {
               src="images/1.jpg"
               alt="First slide"
             />
-            <br/>
+            <br />
             <Carousel.Caption>
-            
-              <h3> No sabes con quién a tus hijos dejar , en esta app te podemos ayudar.</h3>
-              
+              <h3>
+                No sabes con quién a tus hijos dejar , en esta app te podemos
+                ayudar.
+              </h3>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -27,11 +34,12 @@ class Home extends Component {
               src="images/free-babysitter-vector.png"
               alt="Third slide"
             />
-            <br/>
+            <br />
             <Carousel.Caption>
-            
-              <h3> Ponte en contacto con tu Baby Sister , ve sus valoraciones y escoge a la que más se ajuste a tus necesidades.</h3>
-              
+              <h3>
+                Ponte en contacto con tu Baby Sister , ve sus valoraciones y
+                escoge a la que más se ajuste a tus necesidades.
+              </h3>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -40,10 +48,7 @@ class Home extends Component {
               src="images/vector-modern-babysitter-nanny-service-cartoon-illustration.jpg"
               alt="Third slide"
             />
-
-            <Carousel.Caption>
-            
-            </Carousel.Caption>
+            <Carousel.Caption></Carousel.Caption>
           </Carousel.Item>
         </Carousel>
       </div>
