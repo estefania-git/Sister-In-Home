@@ -26,7 +26,6 @@ class AuthService {
     return this.instance
       .get("/loggedin")
       .then(res => {
-        console.log(res);
         return res.data;
       })
       .catch((error, req) => console.error(req));

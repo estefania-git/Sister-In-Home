@@ -95,23 +95,31 @@ class App extends Component {
                 path="/signup"
                 render={match => <SignUp {...match} setUser={this.setUser} />}
               />
-            
+             
+               
+             
             </Switch>
+          
+            
+          
           ) : (
             <Switch>
                 <Route exact path="/profile" render={(match) => <Profile {...match} user={this.state.user} picture={this.state.picture} setUser={this.setUser}  />} />
               <Route exact path="/search" render={() => <MapContainer user={this.state.user} />} />
                 <Route exact path="/chat" render={() => <Chat user={this.state.user} />} />
+                
+                 
+                
             </Switch>
              
           )}
-          <footer>
-            <Footer></Footer>
-          </footer>
-        </section>
-       
-      </div>
-     
+         
+         </section>
+         <br></br>
+         <br></br>
+        <Footer></Footer>
+       </div>
+    
     );
   }
 }
