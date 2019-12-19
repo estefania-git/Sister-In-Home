@@ -55,21 +55,16 @@ export class MapContainer extends Component {
   componentDidMount() {
     Axios.get(`${process.env.REACT_APP_API_URL}/auth/mamis`)
       .then(mamisFromDB => {
-        this.setState({
-          ...this.state,
-          mamis: mamisFromDB.data
-        });
+          Axios.get(`${process.env.REACT_APP_API_URL}/auth/sisters`).then(
+            sistersFromDB => {
+              this.setState({
+                ...this.state,
+                sisters: sistersFromDB.data, mamis: mamisFromDB.data
+              });
+            }
+          )
+        
       })
-      .then(
-        Axios.get(`${process.env.REACT_APP_API_URL}/auth/sisters`).then(
-          sistersFromDB => {
-            this.setState({
-              ...this.state,
-              sisters: sistersFromDB.data
-            });
-          }
-        )
-      );
   }
 
   render() {
