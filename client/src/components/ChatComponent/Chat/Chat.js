@@ -57,6 +57,11 @@ export default class Chat extends Component {
     this.socket.emit("newUser", this.props.user.username)
   }
 
+  deleteUser=()=>{
+    console.log("holaa")
+    this.socket.emit("deleteUser", this.props.user.username)
+  }
+
   // Renderiza la lista de usuarios, el box con el chat y el input para poder escribir mensajes.
   render() {
     console.log(this.state);
@@ -64,7 +69,7 @@ export default class Chat extends Component {
       <div>
       <div className="wrapper">
         <Link to="/search">
-      <Button className="b-chat">Go to Back</Button>
+      <Button className="b-chat" onClick={()=>{this.deleteUser()}}>Go to Back</Button>
         </Link>
         </div>
       <Container id="cont">
