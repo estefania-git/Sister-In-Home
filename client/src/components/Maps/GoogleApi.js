@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import AuthService from "../../services/AuthService";
+
 import {
   Card,
   CardImg,
@@ -24,6 +26,11 @@ const style = {
 };
 
 export class MapContainer extends Component {
+  constructor(props){
+    super(props)
+    this.authService = new AuthService();
+
+  }
   state = {
     showingInfoWindow: false,
     activeMarker: {},
@@ -53,10 +60,14 @@ export class MapContainer extends Component {
   };
 
   componentDidMount() {
-    Axios.get(`${process.env.REACT_APP_API_URL}/auth/mamis`)
+    this.authService.getMamis()
       .then(mamisFromDB => {
-          Axios.get(`${process.env.REACT_APP_API_URL}/auth/sisters`).then(
+        this.authService.getSisters()
+        .then(
             sistersFromDB => {
+              console.log(sistersFromDB)
+            console.log(mamisFromDB)
+
               this.setState({
                 ...this.state,
                 sisters: sistersFromDB.data, mamis: mamisFromDB.data
@@ -71,7 +82,7 @@ export class MapContainer extends Component {
     return (
       <>
         <div className="map">
-          {/* <Map
+          <Map
             id="map"
             google={this.props.google}
             style={style}
@@ -119,7 +130,7 @@ export class MapContainer extends Component {
               </div>
             </InfoWindow>
           </Map>
-          <div></div> */}
+          <div></div>
 
           {this.props.user.role === "Sister" &&
             this.state.mamis.map(mami => {
@@ -179,8 +190,8 @@ export class MapContainer extends Component {
 }
 
 
-// export default GoogleApiWrapper({
-//   apiKey: "AIzaSyDUeQXCyJDlhOtCB8JwWAk8zCxpjk6k-jo"
-// })(MapContainer);
+export default GoogleApiWrapper({
+  apiKey: "AIzaSyDUeQXCyJDlhOtCB8JwWAk8zCxpjk6k-jo"
+})(MapContainer);
 
-export default MapContainer
+// export default MapContainer

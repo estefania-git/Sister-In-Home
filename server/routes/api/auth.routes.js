@@ -152,9 +152,16 @@ router.get("/mamis", (req, res) => {
 });
 
 router.get("/sisters", (req, res) => {
+  console.log("tpm");
   User.find({
     role: "Sister"
-  }).then(babySistersPayload => res.json(babySistersPayload));
+  })
+    .then(babySistersPayload => {
+      console.log("hola");
+      console.log(babySistersPayload);
+      res.json(babySistersPayload);
+    })
+    .catch(err => console.log(err));
 });
 
 router.post("/updateUser", (req, res) => {
@@ -176,10 +183,14 @@ router.post("/updateUser", (req, res) => {
 });
 
 router.post("/updateImage", uploader.any("photo"), (req, res) => {
-  console.log(req.files)
-    User.findByIdAndUpdate(req.body.id, {picture: req.files[0].url}, {new: true})
-        .then(userUpdated => res.json(userUpdated))
-        .catch(err => console.log(err))
+  console.log(req.files);
+  User.findByIdAndUpdate(
+    req.body.id,
+    { picture: req.files[0].url },
+    { new: true }
+  )
+    .then(userUpdated => res.json(userUpdated))
+    .catch(err => console.log(err));
 });
 
 module.exports = router;

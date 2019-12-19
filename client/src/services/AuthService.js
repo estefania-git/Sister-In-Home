@@ -51,6 +51,18 @@ class AuthService {
       .then(response => response.data)
       .catch(error => console.error(error));
   };
+  getMamis = user => {
+    return this.instance
+      .get("/mamis", user)
+      .then(response => response)
+      .catch(error => console.error(error));
+  };
+  getSisters = user => {
+    return this.instance
+      .get("/sisters", user)
+      .then(response => response)
+      .catch(error => console.error(error));
+  };
 
   updateImage = user => {
     const formData = new FormData();
