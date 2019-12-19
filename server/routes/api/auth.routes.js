@@ -152,13 +152,11 @@ router.get("/mamis", (req, res) => {
 });
 
 router.get("/sisters", (req, res) => {
-  console.log("tpm");
+ 
   User.find({
     role: "Sister"
   })
     .then(babySistersPayload => {
-      console.log("hola");
-      console.log(babySistersPayload);
       res.json(babySistersPayload);
     })
     .catch(err => console.log(err));
