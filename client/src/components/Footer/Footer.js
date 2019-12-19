@@ -7,13 +7,12 @@ export default class Footer extends Component {
   render() {
     return (
       
-      <div className="card">
-      <br/>
+      <div className="footer">
+      
         <h3>By</h3>
        
-        <p>Estefanía del Castillo Medrano.</p>
-
-        <br />
+        <h4>Estefanía del Castillo Medrano.</h4>
+       <br></br>  
       </div>
     );
   }
