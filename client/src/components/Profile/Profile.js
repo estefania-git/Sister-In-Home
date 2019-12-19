@@ -22,7 +22,6 @@ export default class Profile extends Component {
     handleChange = e => {
         const { name, value } = e.target;
         if (name === "photo") {
-          console.log(e.target)
           this.setState({ ...this.state, photo: e.target.files[0] });
         } else {
           this.setState({ ...this.state, [name]: value });
@@ -62,7 +61,7 @@ export default class Profile extends Component {
     };
     
   render() {
-      console.log(this.props)
+     
     return (
       <div>
         <h1> Welcome {this.props.user.username}</h1>
