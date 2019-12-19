@@ -102,7 +102,7 @@ export default class Profile extends Component {
                 <br />
         <Form id="form" onSubmit={this.handleSignUp}>
           <Form.Group controlId="formBasicUsername">
-                    <Form.Label> <h4>User Name</h4></Form.Label>
+                    <Form.Label> <h4>Username</h4></Form.Label>
             <Form.Control
               type="text"
               name="username"

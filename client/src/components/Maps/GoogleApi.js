@@ -76,7 +76,7 @@ export class MapContainer extends Component {
     return (
       <>
         <div className="map">
-          <Map
+          {/* <Map
             id="map"
             google={this.props.google}
             style={style}
@@ -124,7 +124,7 @@ export class MapContainer extends Component {
               </div>
             </InfoWindow>
           </Map>
-          <div></div>
+          <div></div> */}
 
           {this.props.user.role === "Sister" &&
             this.state.mamis.map(mami => {
