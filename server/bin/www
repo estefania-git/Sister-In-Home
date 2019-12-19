@@ -69,4 +69,14 @@ io.on("connection", socket => {
     socket.broadcast.emit("newMessage", message);
   });
 
+  socket.on("deleteUser", user =>{
+    console.log("user")
+    userList = userList.filter(element => {
+      return element != user
+    })
+    console.log(userList)
+    socket.emit("list", userList);
+    socket.broadcast.emit("list", userList);
+  });
+
 });
