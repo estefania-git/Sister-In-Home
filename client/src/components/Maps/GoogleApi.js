@@ -61,7 +61,7 @@ export class MapContainer extends Component {
         });
       })
       .then(
-        Axios.get(`${process.env.REACT_APP_API_URL}/auth//sisters`).then(
+        Axios.get(`${process.env.REACT_APP_API_URL}/auth/sisters`).then(
           sistersFromDB => {
             this.setState({
               ...this.state,
