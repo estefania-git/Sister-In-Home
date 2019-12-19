@@ -6,14 +6,15 @@ import "./Footer.css";
 export default class Footer extends Component {
   render() {
     return (
-      
-      <div className="footer">
-      
-        <h3>By</h3>
-       
-        <h4>Estefanía del Castillo Medrano.</h4>
-       <br></br>  
+     
+      <footer className="footer">
+      <div className="fl">
+      <h3>By   </h3>
       </div>
+     <div className="fr">
+       <h4>Estefanía del Castillo Medrano.</h4>
+        </div>
+      </footer> 
     );
   }
 }
